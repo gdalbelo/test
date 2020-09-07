@@ -1,6 +1,6 @@
 <a href="https://avatars3.githubusercontent.com/u/3034180?s=400&u=99a0be7fa37dcefecb5d4eca1866a3e3c051e13c&v=4" title="PaketéCrédito" alt="PaketéCrédito"></a>
 
-Readme para o arquivo para subir um servidor com a função HTTP GET com caminho '/retorna-json' que retorna um json que pode ser testado por algum programa do tipo do Postman.
+Readme para executar o arquivo execute no terminal o camando node Exercise8\ex8.js que subirá um servidor com a função HTTP GET com caminho '/retorna-json' que retorna um json que pode ser testado pelo Postman.
 
 ## License
 
