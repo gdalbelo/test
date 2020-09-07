@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+  <p>Clique nesses botões para pegar as coordendas e gerar o ID.</p>
+
+  <button id="idLocation">Localização</button>
+  <button id="idUuidv4">Gerar ID</button>  
+
+  <p id="plocation"></p>
+  <p id="pUuidv4"></p>
+
+  <script>
+  var pLocation = document.getElementById("plocation");
+  var pUuidv4 = document.getElementById("pUuidv4");
+  var btnLocation = document.getElementById("idLocation");
+  var btnUuidv4 = document.getElementById("idUuidv4");
+  var Signature = {};
+
+  Signature.getLocation = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      pLocation.innerHTML = "Geolocation não é suportada por esse browser.";
+    }
+  }
+
+  function showPosition(position) {
+    pLocation.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+  }
+
+  Signature.getId = function() {
+      var dt = new Date().getTime();
+      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = (dt + Math.random()*16)%16 | 0;
+          dt = Math.floor(dt/16);
+          return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+      });
+      pUuidv4.innerHTML = uuid;
+  }
+
+  btnLocation.addEventListener("click", Signature.getLocation);
+  btnUuidv4.addEventListener("click", Signature.getId);
+  </script>
+
+  </body>
+</html>
